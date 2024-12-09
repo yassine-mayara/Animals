@@ -1,0 +1,35 @@
+<div class="container"> 
+    <div class="card shadow mb-4"> 
+    <div class="card-body"> 
+    <h1>Liste des animaux</h1> 
+    <table width="100%"> 
+    <thead> 
+    <tr> 
+    <th>Id</th> 
+    <th>Pseudo</th> 
+    <th>Race</th>
+    <th>Poids</th>
+    <th>Note</th>
+    <th>Catégorie</th>
+    <th>Action</th>  
+    </tr> 
+    </thead> 
+    <tbody *ngFor="let p of list_pet">
+    <tr > 
+    <td>{{p.id}}</td> 
+    <td>{{p.pseudo}}</td> 
+    <td>{{p.race}}</td>
+    <td>{{p.poids}}</td> 
+    <td>{{p.note | number : '1.1'}}</td>
+    <td *ngIf="p.poids >4">Grand gabarit</td>
+    <td *ngIf="p.poids<4">petit gabarit</td>
+    
+    <td>
+        <a (click)="suppPet(p)" class="btn btn-danger">Supprimer</a>
+    </td>
+    </tr> 
+    </tbody> 
+    </table> 
+    </div> 
+    </div> 
+</div>
